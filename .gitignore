@@ -1,9 +1,54 @@
-.env
-.env.*
-.venv/
+# ==============================================================================
+# VayuSutra APIx - Git Ignore Configuration
+# Prevents large binary files, caches, and logs from exceeding GitHub limits
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Caches and runtime test artifacts
 .pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
 .mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# SQLite temporary journal files
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Large media, video screen recordings & slides (kept deleted per project rules)
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.pptx
+*.ppt
+uploads/
+*.zip
+*.tar.gz
+
+# IDE and OS metadata
 .DS_Store
-*.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local runtime logs and temporary environment overrides
+*.log
+.env.local
