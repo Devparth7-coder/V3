@@ -1,0 +1,21 @@
+[Unit]
+Description=VayuSutra APIx - National Airfare Intelligence & Inflation Decision Platform
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mospi
+Group=mospi
+WorkingDirectory=/opt/vayusutra_apix
+EnvironmentFile=/opt/vayusutra_apix/.env
+ExecStart=/usr/local/bin/python3 -m uvicorn vayusutra_apix.api.main:app --host 0.0.0.0 --port 8000 --workers 4
+Restart=always
+RestartSec=5s
+LimitNOFILE=65536
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vayusutra-apix
+
+[Install]
+WantedBy=multi-user.target

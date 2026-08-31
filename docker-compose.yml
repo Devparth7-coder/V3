@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  vayusutra-apix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vayusutra_apix_app
+    restart: always
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    volumes:
+      - apix_data:/app/vayusutra_apix/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8000/api/v1/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  nginx:
+    image: nginx:alpine
+    container_name: vayusutra_apix_gateway
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      vayusutra-apix:
+        condition: service_healthy
+
+volumes:
+  apix_data:
+    name: vayusutra_apix_sqlite_storage

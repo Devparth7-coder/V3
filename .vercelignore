@@ -1,0 +1,17 @@
+.git
+.github
+.pytest_cache
+__pycache__
+*.pyc
+tests
+vayusutra_apix/tests
+deploy/k8s
+deploy/systemd
+docs
+Dockerfile
+docker-compose.yml
+.env
+.env.example
+*.mp4
+*.pptx
+uploads

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="obsidian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH26056 Video Walkthrough &amp; Explanation in Hindi | VayuSutra APIx</title>
+    <style>
+        :root {
+            --bg-base: #060913;
+            --bg-surface: rgba(13, 20, 38, 0.75);
+            --bg-surface-solid: #0d1426;
+            --bg-surface-elevated: rgba(19, 30, 58, 0.9);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-card: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+            --accent-saffron: #f59e0b;
+            --accent-cyan: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-purple: #818cf8;
+            --accent-rose: #f43f5e;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px), radial-gradient(rgba(30, 41, 59, 0.5) 1px, #060913 1px);
+            background-size: 28px 28px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            background: linear-gradient(135deg, rgba(14, 23, 46, 0.95) 0%, rgba(19, 34, 71, 0.95) 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand-title h1 {
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-sih {
+            font-size: 11px;
+            padding: 3px 8px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-saffron);
+            border: 1px solid var(--accent-saffron);
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .section-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+            backdrop-filter: blur(16px);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .script-box {
+            background: var(--bg-surface-solid);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 12px;
+            font-size: 13.5px;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        .script-box strong { color: var(--accent-saffron); }
+
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .point-card {
+            background: rgba(19, 30, 58, 0.6);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        .point-card strong { color: var(--accent-emerald); display: block; margin-bottom: 4px; font-size: 13px; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .team-card {
+            background: var(--bg-surface-solid);
+            border: 1px solid var(--border-card);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .team-name { font-size: 15px; font-weight: 700; color: #ffffff; }
+        .team-dept { font-size: 11px; font-weight: 600; color: var(--accent-cyan); margin: 2px 0 6px 0; }
+        .team-role { font-size: 11.5px; color: var(--text-secondary); }
+
+        .btn-play {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand-title">
+            <h1>
+                🎙️ SIH26056 Video Walkthrough &amp; Explanation (हिंदी)
+                <span class="badge-sih">MoSPI &bull; RBI &bull; DGCA</span>
+            </h1>
+            <div style="font-size:12px; color:var(--text-secondary); margin-top:2px;">
+                Problem Statement, Required Features, Architecture &amp; Team Implementation Guide
+            </div>
+        </div>
+        <div>
+            <a href="/" style="color:var(--accent-cyan); text-decoration:none; font-size:12px; font-weight:700; background:rgba(56,189,248,0.1); border:1px solid var(--accent-cyan); padding:6px 14px; border-radius:6px;">
+                &larr; Open Live Dashboard
+            </a>
+        </div>
+    </header>
+
+    <!-- Part 1: Problem Background -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-title">
+                <span>1. प्रॉब्लम क्या है? (Problem Statement Background)</span>
+            </div>
+            <span style="font-size:11px; color:var(--accent-saffron); font-weight:700;">भाग १ • पृष्ठभूमि</span>
+        </div>
+        <audio controls class="audio-player" src="/static/audio/hindi_part1_intro.mp3"></audio>
+        <div class="script-box">
+            <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
+            नमस्ते टीम। आज हम स्मार्ट इंडिया हैकाथॉन के प्रॉब्लम स्टेटमेंट <strong>एसआईएच 26056</strong> को आसान भाषा में समझेंगे। यह प्रोजेक्ट मिनिस्ट्री ऑफ स्टैटिस्टिक्स यानी <strong>MoSPI</strong>, <strong>रिजर्व बैंक ऑफ इंडिया (RBI)</strong> और <strong>DGCA</strong> के लिए है। भारत में महंगाई यानी सीपीआई इन्फ्लेशन नापने के लिए ट्रांसपोर्ट और कम्युनिकेशन का <strong>8.59% वेटेज</strong> है। अब तक सरकार हवाई किराए का डेटा एयरपोर्ट के फिजिकल टिकट काउंटरों पर जाकर महीने में सिर्फ एक बार कलेक्ट करती थी। लेकिन आज <strong>90% से ज्यादा टिकट</strong> इंडिगो, एयर इंडिया और मेकमाईट्रिप जैसे ऑनलाइन पोर्टल से बुक होते हैं। एयरलाइंस डायनामिक प्राइसिंग का इस्तेमाल करती हैं, जिससे एक ही रूट का किराया <strong>200% से 400%</strong> तक बदल जाता है। इसलिए हमें एक ऐसा ऑटोमेटेड सिस्टम बनाना है जो रियल टाइम में ऑनलाइन टिकटों के भाव को स्क्रैप करे और सही सीपीआई इंडेक्स निकाले।
+        </div>
+        <div class="key-points-grid">
+            <div class="point-card">
+                <strong>🏛️ MoSPI &amp; RBI का रोल</strong>
+                CPI महंगाई दर पर RBI की मॉनेटरी पॉलिसी कमेटी रेपो रेट तय करती है। गलत या पुराना डेटा पॉलिसी को नुकसान पहुंचाता है।
+            </div>
+            <div class="point-card">
+                <strong>📉 फिजिकल काउंटर की नाकामी</strong>
+                महीने में एक बार काउंटर जाने से डायनामिक प्राइसिंग और ऑनलाइन टिकटों के 92% रियल भाव छूट जाते हैं।
+            </div>
+            <div class="point-card">
+                <strong>🎯 हमारा विजन</strong>
+                ऑटोमेटेड वेब स्क्रैपिंग + इंटरनेशनल स्टैंडर्ड इंडेक्स कैलकुलेटर से 100% सटीक और रियल-टाइम इंडेक्स तैयार करना।
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 2: Required Features -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-title">
+                <span>2. क्या-क्या फीचर्स बनाने हैं? (Demanded Features)</span>
+            </div>
+            <span style="font-size:11px; color:var(--accent-cyan); font-weight:700;">भाग २ • फीचर्स और बास्केट</span>
+        </div>
+        <audio controls class="audio-player" src="/static/audio/hindi_part2_requirements.mp3"></audio>
+        <div class="script-box">
+            <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
+            अब समझते हैं कि इस प्रॉब्लम स्टेटमेंट में क्या-क्या फीचर्स मांगे गए हैं। पहला फीचर है <strong>डीजीसीए के टॉप 20 घरेलू रूट्स</strong> का बास्केट (जैसे दिल्ली-मुंबई, दिल्ली-बेंगलुरु), जिनका टोटल वेटेज strictly <strong>100%</strong> होना चाहिए। दूसरा फीचर है <strong>5 एडवांस परचेज विंडोज</strong>: T+1 (इमरजेंसी), T+7 (अर्जेंट बिजनेस), T+15 (स्टैंडर्ड), T+30 (लीजर) और T+45 (अर्ली बर्ड)। तीसरा फीचर है <strong>एथिकल स्क्रैपिंग</strong>, जिसमें हमें इंडिगो, एयर इंडिया, अकासा, स्पाइसजेट और मेकमाईट्रिप से डेटा लेना है। इसमें <strong>टोकन बकेट रेट लिमिटर (1.5 req/s)</strong>, रोबोट्स डॉट टीएक्सटी और आईपी जिटर लगाना जरूरी है ताकि किसी वेबसाइट पर लोड न पड़े।
+        </div>
+        <div class="key-points-grid">
+            <div class="point-card">
+                <strong>✈️ Top 20 DGCA Corridors</strong>
+                DEL-BOM (10.92%), BOM-DEL (10.73%), DEL-BLR (8.05%), BOM-BLR (5.84%), आदि, कुल 100.00%।
+            </div>
+            <div class="point-card">
+                <strong>📅 5 Advance Horizons</strong>
+                T+1 (22% wt, 2.5x), T+7 (34% wt, 1.6x), T+15 (24% wt), T+30 (14% wt), T+45 (6% wt)।
+            </div>
+            <div class="point-card">
+                <strong>🛡️ Ethical Scraping Standard</strong>
+                Token-Bucket Algorithm (Max 1.5 req/s) + 50-180ms Jitter + Robots.txt Validation।
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 3: Data Cleaning -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-title">
+                <span>3. डेटा क्लीनिंग और आउटलायर्स कैसे हटाएं? (Data Cleaning &amp; MAD Filter)</span>
+            </div>
+            <span style="font-size:11px; color:var(--accent-gold); font-weight:700;">भाग ३ • डेटा स्क्रबिंग</span>
+        </div>
+        <audio controls class="audio-player" src="/static/audio/hindi_part3_cleaning.mp3"></audio>
+        <div class="script-box">
+            <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
+            डेटा स्क्रैप करने के बाद तीसरा सबसे जरूरी हिस्सा है डेटा क्लीनिंग पाइपलाइन। इसमें दो बड़े चैलेंज हैं। पहला है <strong>मल्टी-ओटीए डिडुप्लीकेशन</strong>। जब एक ही फ्लाइट एयरलाइन की वेबसाइट और मेकमाईट्रिप दोनों पर दिखती है, तो हमें डायरेक्ट एयरलाइन का टिकट रखना है ताकि डुप्लीकेट डेटा से वेटेज खराब न हो। दूसरा चैलेंज है आउटलायर्स यानी गलत डेटा को हटाना। इसके लिए हमें <strong>मीडियन एब्सोल्यूट डेविएशन (MAD) मॉडिफाइड Z-स्कोर</strong> एल्गोरिदम लगाना है। अगर किसी टिकट का Z-स्कोर 3 से ज्यादा है (जैसे ₹99,999 या ₹150 का ग्लिच), तो उसे सिस्टम रिजेक्ट कर देगा। साथ ही हमें बेस फेयर (65%), फ्यूल सरचार्ज (35%), जीएसटी (5%) और एयरपोर्ट फीस (₹711) को अलग-अलग डीकंपोज करना है।
+        </div>
+        <div class="key-points-grid">
+            <div class="point-card">
+                <strong>🔄 Multi-OTA Deduplication</strong>
+                फ्लाइट नंबर + टाइमिंग मैच करके डायरेक्ट एयरलाइन टिकट को तरजीह दी जाती है।
+            </div>
+            <div class="point-card">
+                <strong>📊 MAD Modified Z-Score</strong>
+                MAD = median(|x - median(x)|)। |M_i| > 3.0 वाले गलत क्रॉल एरर्स को बाहर किया जाता है।
+            </div>
+            <div class="point-card">
+                <strong>🏛️ Statutory Tax Decomposition</strong>
+                एयरपोर्ट UDF/PSF/ASF और 5% GST को बेस फेयर से अलग करके शुद्ध इन्फ्लेशन निकाला जाता है।
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 4: Econometric Mathematics -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-title">
+                <span>4. इकोनॉमेट्रिक इंडेक्स और CPI फॉर्मूला (Econometric Math &amp; Inflation Transmission)</span>
+            </div>
+            <span style="font-size:11px; color:var(--accent-emerald); font-weight:700;">भाग ४ • गणित और अर्थशास्त्र</span>
+        </div>
+        <audio controls class="audio-player" src="/static/audio/hindi_part4_econometrics.mp3"></audio>
+        <div class="script-box">
+            <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
+            चौथा मुख्य हिस्सा है इकोनॉमेट्रिक इंडेक्स कैलकुलेशन। इसमें हमें आईएलओ और भारत सरकार के आधिकारिक नियमों का पालन करना है। सबसे पहले हम <strong>जेवन्स ज्योमेट्रिक मीन</strong> का उपयोग करके हर रूट का एलिमेंट्री एवरेज निकालते हैं, जिससे कोई अरिथमेटिक बायस न आए। इसके बाद हम <strong>लास्पायर्स इंडेक्स (I_L)</strong> और <strong>सुपरलेटिव फिशर आइडियल इंडेक्स (I_F)</strong> कैलकुलेट करते हैं। जब भी एयरफेयर इंडेक्स में कोई बदलाव आता है, तो हमारा सिस्टम यह कैलकुलेट करता है कि इसका नेशनल सीपीआई पर कितने <strong>बेसिस पॉइंट्स (Bps)</strong> का असर पड़ेगा। इसके जरिए आरबीआई रेपो रेट तय करते समय तुरंत महंगाई का सटीक अनुमान लगा सकती है।
+        </div>
+        <div class="key-points-grid">
+            <div class="point-card">
+                <strong>📐 Jevons Geometric Mean</strong>
+                P_bar = (prod p_i)^(1/n) = exp(1/n * sum ln(p_i)) &bull; कोई अंकगणितीय बायस नहीं।
+            </div>
+            <div class="point-card">
+                <strong>📈 Superlative Fisher Ideal</strong>
+                I_F = sqrt(I_L * I_P) &bull; कंज्यूमर सब्स्टीट्यूशन बायस को पूरी तरह खत्म करता है।
+            </div>
+            <div class="point-card">
+                <strong>🎯 Instant Bps Pass-Through</strong>
+                ΔBps_Trans = Δ% * 3.85% * 100 &bull; ΔBps_Headline = ΔBps_Trans * 8.59%।
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 5: Tech Stack & Team Roles -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-title">
+                <span>5. टेक्नोलॉजी और टीम में काम का बंटवारा (Tech Stack &amp; Team Roles)</span>
+            </div>
+            <span style="font-size:11px; color:var(--accent-purple); font-weight:700;">भाग ५ • टीम और आर्किटेक्चर</span>
+        </div>
+        <audio controls class="audio-player" src="/static/audio/hindi_part5_tech_and_team.mp3"></audio>
+        <div class="script-box">
+            <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
+            पांचवां हिस्सा है वैलिडेशन और लाइव प्रोटोटाइप। हमें डीजीसीए के पैसेंजर यील्ड के साथ 35 दिनों का बैकटेस्टिंग करके <strong>पियर्सन कोरिलेशन (r > 0.85)</strong> और <strong>MAPE एरर (< 4%)</strong> साबित करना है (जो हमने r=0.9858 और MAPE=0.838% के साथ हासिल कर लिया है)। साथ ही हमने 15 सिग्नल्स वाला <strong>एआई नाउकास्टिंग मॉडल (Ridge + GBDT)</strong> बनाया है जो 14 दिनों का इन्फ्लेशन फोरकास्ट देता है। पूरी टीम के काम को ऐसे बांटा गया है:
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card" style="border-color:var(--accent-saffron);">
+                <div class="team-name">Harsh Kasaudhan</div>
+                <div class="team-dept">CSE &bull; Lead Architect</div>
+                <div class="team-role">सिस्टम आर्किटेक्चर, इकोनॉमेट्रिक मैथ (Jevons/Fisher/Laspeyres) और AI Machine Learning Nowcasting Ensemble।</div>
+            </div>
+            <div class="team-card" style="border-color:var(--accent-cyan);">
+                <div class="team-name">Manas</div>
+                <div class="team-dept">CSE &bull; Data Engineer</div>
+                <div class="team-role">डेटा क्लीनिंग पाइपलाइन, Multi-OTA डिडुप्लीकेशन, और MAD Modified Z-Score Outlier Filter एल्गोरिदम।</div>
+            </div>
+            <div class="team-card" style="border-color:var(--accent-emerald);">
+                <div class="team-name">Shivani</div>
+                <div class="team-dept">CSE &bull; Ingestion Lead</div>
+                <div class="team-role">Ethical Scraper Engine (Token Bucket 1.5 rps), eSankhyiki MoSPI Portal कनेक्टर और डेटा स्कीमा।</div>
+            </div>
+            <div class="team-card" style="border-color:var(--accent-purple);">
+                <div class="team-name">Rishi</div>
+                <div class="team-dept">IT &bull; Microservice &amp; QA</div>
+                <div class="team-role">DGCA 30-Day Backtesting Engine, Prometheus /metrics, WebSocket Live Streaming और CLI Tooling।</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
