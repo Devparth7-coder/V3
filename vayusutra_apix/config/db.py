@@ -43,27 +43,32 @@ _thread_local = threading.local()
 class DatabaseManager:
     """Manages SQLite WAL-mode connections with proper concurrency, indexing, and pragma settings."""
 
-    def __init__(self, db_path: str = DB_PATH):
-        self.db_path = db_path
+    def __init__(self, db_path: Optional[str] = None):
+        self.db_path = db_path or get_resolved_db_path()
         self._lock = threading.Lock()
         self.init_db()
 
     def get_connection(self) -> sqlite3.Connection:
         """Get or create a thread-local SQLite connection."""
         if not hasattr(_thread_local, "connection") or _thread_local.connection is None:
+            resolved_path = self.db_path or get_resolved_db_path()
             conn = sqlite3.connect(
-                self.db_path,
+                resolved_path,
                 timeout=30.0,
                 check_same_thread=False,
                 detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES
             )
             conn.row_factory = sqlite3.Row
-            # Enable WAL mode and performance pragmas
-            conn.execute("PRAGMA journal_mode=WAL;")
+            try:
+                if os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME"):
+                    conn.execute("PRAGMA journal_mode=DELETE;")
+                else:
+                    conn.execute("PRAGMA journal_mode=WAL;")
+            except Exception:
+                pass
             conn.execute("PRAGMA synchronous=NORMAL;")
             conn.execute("PRAGMA foreign_keys=ON;")
             conn.execute("PRAGMA busy_timeout=10000;")
-            conn.execute("PRAGMA cache_size=-64000;")  # 64MB memory cache
             _thread_local.connection = conn
         return _thread_local.connection
 
@@ -83,9 +88,16 @@ class DatabaseManager:
 
     def init_db(self) -> None:
         """Initialize and migrate database schema with normalized tables and indexes."""
+        resolved_path = self.db_path or get_resolved_db_path()
         with self._lock:
-            conn = sqlite3.connect(self.db_path)
-            conn.execute("PRAGMA journal_mode=WAL;")
+            conn = sqlite3.connect(resolved_path)
+            try:
+                if os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME"):
+                    conn.execute("PRAGMA journal_mode=DELETE;")
+                else:
+                    conn.execute("PRAGMA journal_mode=WAL;")
+            except Exception:
+                pass
             conn.execute("PRAGMA foreign_keys=ON;")
             cursor = conn.cursor()
 
