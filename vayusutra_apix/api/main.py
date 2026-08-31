@@ -98,18 +98,24 @@ SOLUTION_CARD_PATH = os.path.join(STATIC_DIR, "proposed_solution_card.html")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup & shutdown lifecycle events."""
-    init_db()
-    init_auth_tables()
-    conn = get_db_connection()
-    row = conn.execute("SELECT COUNT(*) as cnt FROM national_indices").fetchone()
-    if not row or row["cnt"] == 0:
-        engine = DGCABacktestEngine()
-        engine.run_backtest(num_days=35)
-        train_nowcast_model()
+    try:
+        init_db()
+        init_auth_tables()
+        conn = get_db_connection()
+        row = conn.execute("SELECT COUNT(*) as cnt FROM national_indices").fetchone()
+        if not row or row["cnt"] == 0:
+            engine = DGCABacktestEngine()
+            engine.run_backtest(num_days=35)
+            train_nowcast_model()
+    except Exception as e:
+        logger.warning(f"Startup initialization notice: {e}")
 
-    worker_daemon.start()
+    is_serverless = bool(os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME"))
+    if not is_serverless:
+        worker_daemon.start()
     yield
-    worker_daemon.stop()
+    if not is_serverless:
+        worker_daemon.stop()
 
 
 app = FastAPI(
@@ -150,13 +156,25 @@ async def add_request_telemetry(request: Request, call_next):
 # 1. UI DASHBOARD & STATIC PRESENTATION ROUTES
 # =============================================================================
 
+def get_dashboard_html_content() -> str:
+    """Finds and returns dashboard HTML with multi-path resolution for serverless containers."""
+    candidate_paths = [
+        DASHBOARD_PATH,
+        os.path.join(os.getcwd(), "vayusutra_apix", "static", "dashboard.html"),
+        os.path.join(BASE_DIR, "static", "dashboard.html"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "static", "dashboard.html")
+    ]
+    for p in candidate_paths:
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                return f.read()
+    return "<h2>VAYUSUTRA APIx &bull; National Airfare Intelligence &amp; Inflation Decision Platform</h2>"
+
+
 @app.get("/", response_class=HTMLResponse, summary="National Airfare Intelligence Command Center")
 def serve_dashboard():
     """Serves the standalone interactive zero-dependency HTML dashboard."""
-    if os.path.exists(DASHBOARD_PATH):
-        with open(DASHBOARD_PATH, "r", encoding="utf-8") as f:
-            return HTMLResponse(content=f.read())
-    return HTMLResponse("<h2>VayuSutra APIx Dashboard loading...</h2>")
+    return HTMLResponse(content=get_dashboard_html_content())
 
 
 @app.get("/routes/{route_code}", response_class=HTMLResponse, summary="Route Intelligence Page")
