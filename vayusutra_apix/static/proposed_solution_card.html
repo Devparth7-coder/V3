@@ -158,11 +158,11 @@
     <!-- Slide Navigation Bar with Exact File Key Mappings -->
     <div class="slide-nav">
         <button class="slide-btn" onclick="showSlide('slide_1', 'slides/slide_1.png', this)">1. Title &amp; Team</button>
-        <button class="slide-btn active" onclick="showSlide('955', 'Screenshot 2026-09-01 114955.png', this)">2. Proposed Solution (955)</button>
-        <button class="slide-btn" onclick="showSlide('440', 'Screenshot 2026-09-01 114400.png', this)">3. Technical Approach (440)</button>
-        <button class="slide-btn" onclick="showSlide('506', 'Screenshot 2026-09-01 114506.png', this)">4. Feasibility &amp; Viability (506)</button>
-        <button class="slide-btn" onclick="showSlide('524', 'Screenshot 2026-09-01 114524.png', this)">5. Impact &amp; Benefit (524)</button>
-        <button class="slide-btn" onclick="showSlide('541', 'Screenshot 2026-09-01 114541.png', this)">6. Research &amp; Reference (541)</button>
+        <button class="slide-btn active" onclick="showSlide('955', 'img/Screenshot 2026-09-01 114955.png', this)">2. Proposed Solution (955)</button>
+        <button class="slide-btn" onclick="showSlide('440', 'img/Screenshot 2026-09-01 114400.png', this)">3. Technical Approach (440)</button>
+        <button class="slide-btn" onclick="showSlide('506', 'img/Screenshot 2026-09-01 114506.png', this)">4. Feasibility &amp; Viability (506)</button>
+        <button class="slide-btn" onclick="showSlide('524', 'img/Screenshot 2026-09-01 114524.png', this)">5. Impact &amp; Benefit (524)</button>
+        <button class="slide-btn" onclick="showSlide('541', 'img/Screenshot 2026-09-01 114541.png', this)">6. Research &amp; Reference (541)</button>
     </div>
 
     <!-- Active Slide Image Display -->
@@ -222,12 +222,12 @@
 
 <script>
 const SLIDE_FALLBACKS = {
-    "955": ["img/Screenshot 2026-09-01 114955.png", "img/slides/slide_2.png", "img/proposed_solution_executive_visual.png"],
-    "440": ["img/Screenshot 2026-09-01 114400.png", "img/slides/slide_3.png"],
-    "506": ["img/Screenshot 2026-09-01 114506.png", "img/slides/slide_4.png"],
-    "524": ["img/Screenshot 2026-09-01 114524.png", "img/slides/slide_5.png"],
-    "541": ["img/Screenshot 2026-09-01 114541.png", "img/slides/slide_6.png", "img/references_research_visual.png"],
-    "slide_1": ["img/slides/slide_1.png", "img/Screenshot 2026-09-01 114400.png"]
+    "955": ["img/Screenshot 2026-09-01 114955.png"],
+    "440": ["img/Screenshot 2026-09-01 114400.png"],
+    "506": ["img/Screenshot 2026-09-01 114506.png"],
+    "524": ["img/Screenshot 2026-09-01 114524.png"],
+    "541": ["img/Screenshot 2026-09-01 114541.png"],
+    "slide_1": ["img/Screenshot 2026-09-01 114400.png"]
 };
 
 function showSlide(key, primaryPath, btnEl) {
