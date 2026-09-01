@@ -67,12 +67,12 @@ PRE_SEEDED_USERS = [
         "raw_password": "admin2026!",
         "full_name": "Dev Parth and Team VayuSutra",
         "role": UserRole.SYSTEM_ADMIN,
-        "designation": "Principal System Architect & Lead Econometric Engineer",
-        "organization": "VayuSutra Command & Engineering",
+        "designation": "Team Lead & Principal System Architect",
+        "organization": "Team VayuSutra (Dev Parth, Avanish Kumar, Anushka Mall, Aryan Vishwakarma, Sumit, Aryan)",
         "department": "National Infrastructure & Data Engineering",
         "avatar_color": "#38bdf8",  # Cyan Blue
         "badge_theme": "cyan",
-        "description": "Full Root Administrative Access - Background worker daemons, model retraining, rate limiter metrics, and cryptographic ledger vault.",
+        "description": "Team VayuSutra (6 Members): Dev Parth (Leader), Avanish Kumar, Anushka Mall, Aryan Vishwakarma, Sumit, Aryan. Full Root Clearance.",
         "key_features": ["Full Subsystem Clearance", "60s Worker Daemon Controls", "ML Nowcast Model Retraining", "Cryptographic Provenance Vault"]
     },
     {
