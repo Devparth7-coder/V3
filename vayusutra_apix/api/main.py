@@ -21,6 +21,7 @@ from dataclasses import asdict
 from fastapi import FastAPI, HTTPException, Query, Response, WebSocket, WebSocketDisconnect, Depends, Header, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from ..config.routes import (
@@ -138,6 +139,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount Static Files directory for media, audio and image assets
+if os.path.exists(STATIC_DIR):
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 # Request ID Middleware & Performance Logging
