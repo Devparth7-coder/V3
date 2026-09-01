@@ -3,52 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposed Solution Showcase | VayuSutra APIx</title>
+    <title>Proposed Solution &amp; Pitch Deck | VayuSutra APIx (SIH26056)</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #040814;
+            background-image: radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.1) 0px, transparent 50%);
             color: #f8fafc;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 24px;
+            padding: 16px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1440px;
             width: 100%;
         }
         .header-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            background: rgba(13, 20, 38, 0.8);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            margin-bottom: 16px;
+            background: rgba(13, 20, 38, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.25);
             border-radius: 12px;
-            padding: 14px 20px;
+            padding: 12px 20px;
             backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .slide-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .slide-btn {
+            background: rgba(13, 20, 38, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .slide-btn:hover {
+            border-color: #38bdf8;
+            color: #ffffff;
+            background: rgba(56, 189, 248, 0.15);
+        }
+        .slide-btn.active {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(245, 158, 11, 0.2));
+            border-color: #38bdf8;
+            color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
         }
         .img-card {
             width: 100%;
             border-radius: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.15);
             overflow: hidden;
             display: block;
+            background: #081224;
+            transition: all 0.25s ease;
         }
         .img-card img {
             width: 100%;
             height: auto;
             display: block;
         }
-        .btn-download {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        .btn-action {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             color: #ffffff;
-            border: none;
-            padding: 8px 18px;
+            border: 1px solid #38bdf8;
+            padding: 8px 16px;
             border-radius: 8px;
             font-size: 12px;
             font-weight: 700;
@@ -57,7 +94,40 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+            transition: all 0.2s ease;
+        }
+        .btn-action:hover {
+            background: linear-gradient(135deg, #0369a1, #0284c7);
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+        @media (max-width: 900px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+        }
+        .pillar-card {
+            background: rgba(13, 20, 38, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .pillar-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pillar-desc {
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.45;
         }
     </style>
 </head>
@@ -66,20 +136,100 @@
 <div class="container">
     <div class="header-bar">
         <div>
-            <h1 style="font-size: 18px; font-weight: 800; color: #ffffff;">Proposed Solution Executive Visual Slide</h1>
-            <div style="font-size: 11px; color: #94a3b8;">High-Impact Visual Keynote for Judges • SIH26056 • MoSPI / RBI / DGCA</div>
+            <h1 style="font-size: 18px; font-weight: 800; color: #ffffff; display: flex; align-items: center; gap: 8px;">
+                💡 VayuSutra Proposed Solution &amp; Pitch Deck
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.4); padding: 2px 8px; border-radius: 6px;">SIH26056</span>
+            </h1>
+            <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">
+                National Airfare Intelligence &amp; Inflation Decision Platform &bull; MoSPI / NSO &bull; RBI MPC &bull; DGCA
+            </div>
         </div>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="/" style="color: #38bdf8; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px;">
-                &larr; Live Prototype Dashboard
+            <a href="/" class="btn-action">
+                &larr; Live Dashboard
+            </a>
+            <a href="/video" class="btn-action" style="background: linear-gradient(135deg, #f59e0b, #d97706); border-color: #f59e0b;">
+                🎥 Video Walkthrough
             </a>
         </div>
     </div>
 
+    <!-- Slide Navigation Bar -->
+    <div class="slide-nav">
+        <button class="slide-btn" onclick="showSlide(1, this)">1. Title &amp; Team</button>
+        <button class="slide-btn active" onclick="showSlide(2, this)">2. Proposed Solution (Hero)</button>
+        <button class="slide-btn" onclick="showSlide(3, this)">3. Technical Approach</button>
+        <button class="slide-btn" onclick="showSlide(4, this)">4. Feasibility &amp; Viability</button>
+        <button class="slide-btn" onclick="showSlide(5, this)">5. Impact &amp; Benefits</button>
+        <button class="slide-btn" onclick="showSlide(6, this)">6. Research &amp; References</button>
+    </div>
+
+    <!-- Active Slide Image Display -->
     <div class="img-card">
-        <img src="img/proposed_solution_executive_visual.png" alt="Proposed Solution Executive Visual Design">
+        <img id="main-slide-img" src="img/slides/slide_2.png" alt="Proposed Solution Slide">
+    </div>
+
+    <!-- 6 Core Delivery Pillars from PDF -->
+    <div class="pillars-grid">
+        <div class="pillar-card">
+            <div class="pillar-title">1. Real-Time Airfare Data Collection</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> Airfare data collected manually from limited sources causing delays &amp; gaps.<br>
+                <strong>Solution:</strong> Automated ethical scraping from direct airlines &amp; OTAs for real-time high-frequency quotes.
+            </div>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">2. Data Cleaning &amp; Normalization</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> Duplicate listings, taxes mixed with base fare, sold-out glitches.<br>
+                <strong>Solution:</strong> Multi-OTA cross-portal deduplication + MAD Modified Z-Score outlier filter (|M_i| &gt; 3.0).
+            </div>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">3. Centralized Airfare Database</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> No unified repository for high-frequency pricing observations.<br>
+                <strong>Solution:</strong> Normalized SQLite WAL storage with SHA-256 tamper-proof provenance fingerprinting.
+            </div>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">4. Airfare Price Index Calculation</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> No real-time index to reflect travel cost inflation for RBI/MoSPI.<br>
+                <strong>Solution:</strong> Weighted Airfare Price Index (APIx) with Jevons, Laspeyres, and Superlative Fisher Ideal formulas.
+            </div>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">5. Dashboard Analytics &amp; API Access</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> Existing data is not accessible for central bank policymakers.<br>
+                <strong>Solution:</strong> Interactive Bento command center, 9 workspaces, and 42 REST/WebSocket endpoints.
+            </div>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-title">6. Routes &amp; Window Coverage</div>
+            <div class="pillar-desc">
+                <strong>Problem:</strong> Airfares change dynamically based on booking lead times.<br>
+                <strong>Solution:</strong> 20 DGCA routes (weights sum strictly to 1.0000) &times; 5 advance windows (T+1 to T+45).
+            </div>
+        </div>
     </div>
 </div>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a341f69bfe575790',t:'MTc4ODI0MTQ2OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>
+function showSlide(slideNum, btnEl) {
+    document.querySelectorAll('.slide-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    const imgEl = document.getElementById('main-slide-img');
+    if (imgEl) {
+        imgEl.style.opacity = '0.4';
+        setTimeout(() => {
+            imgEl.src = `img/slides/slide_${slideNum}.png`;
+            imgEl.style.opacity = '1';
+        }, 150);
+    }
+}
+</script>
+
+</body>
 </html>
