@@ -80,6 +80,7 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: opacity 0.2s ease;
         }
         .btn-action {
             background: linear-gradient(135deg, #0284c7, #0369a1);
@@ -154,19 +155,22 @@
         </div>
     </div>
 
-    <!-- Slide Navigation Bar -->
+    <!-- Slide Navigation Bar with Exact File Key Mappings -->
     <div class="slide-nav">
-        <button class="slide-btn" onclick="showSlide(1, this)">1. Title &amp; Team</button>
-        <button class="slide-btn active" onclick="showSlide(2, this)">2. Proposed Solution (Hero)</button>
-        <button class="slide-btn" onclick="showSlide(3, this)">3. Technical Approach</button>
-        <button class="slide-btn" onclick="showSlide(4, this)">4. Feasibility &amp; Viability</button>
-        <button class="slide-btn" onclick="showSlide(5, this)">5. Impact &amp; Benefits</button>
-        <button class="slide-btn" onclick="showSlide(6, this)">6. Research &amp; References</button>
+        <button class="slide-btn" onclick="showSlide('slide_1', 'slides/slide_1.png', this)">1. Title &amp; Team</button>
+        <button class="slide-btn active" onclick="showSlide('955', 'Screenshot 2026-09-01 114955.png', this)">2. Proposed Solution (955)</button>
+        <button class="slide-btn" onclick="showSlide('440', 'Screenshot 2026-09-01 114400.png', this)">3. Technical Approach (440)</button>
+        <button class="slide-btn" onclick="showSlide('506', 'Screenshot 2026-09-01 114506.png', this)">4. Feasibility &amp; Viability (506)</button>
+        <button class="slide-btn" onclick="showSlide('524', 'Screenshot 2026-09-01 114524.png', this)">5. Impact &amp; Benefit (524)</button>
+        <button class="slide-btn" onclick="showSlide('541', 'Screenshot 2026-09-01 114541.png', this)">6. Research &amp; Reference (541)</button>
     </div>
 
     <!-- Active Slide Image Display -->
     <div class="img-card">
-        <img id="main-slide-img" src="img/slides/slide_2.png" alt="Proposed Solution Slide">
+        <img id="main-slide-img" 
+             src="img/Screenshot 2026-09-01 114955.png" 
+             onerror="this.onerror=null; this.src='img/slides/slide_2.png';" 
+             alt="VayuSutra Proposed Solution Keynote Slide">
     </div>
 
     <!-- 6 Core Delivery Pillars from PDF -->
@@ -217,16 +221,35 @@
 </div>
 
 <script>
-function showSlide(slideNum, btnEl) {
+const SLIDE_FALLBACKS = {
+    "955": ["img/Screenshot 2026-09-01 114955.png", "img/slides/slide_2.png", "img/proposed_solution_executive_visual.png"],
+    "440": ["img/Screenshot 2026-09-01 114400.png", "img/slides/slide_3.png"],
+    "506": ["img/Screenshot 2026-09-01 114506.png", "img/slides/slide_4.png"],
+    "524": ["img/Screenshot 2026-09-01 114524.png", "img/slides/slide_5.png"],
+    "541": ["img/Screenshot 2026-09-01 114541.png", "img/slides/slide_6.png", "img/references_research_visual.png"],
+    "slide_1": ["img/slides/slide_1.png", "img/Screenshot 2026-09-01 114400.png"]
+};
+
+function showSlide(key, primaryPath, btnEl) {
     document.querySelectorAll('.slide-btn').forEach(b => b.classList.remove('active'));
     if (btnEl) btnEl.classList.add('active');
+    
     const imgEl = document.getElementById('main-slide-img');
     if (imgEl) {
-        imgEl.style.opacity = '0.4';
+        imgEl.style.opacity = '0.3';
         setTimeout(() => {
-            imgEl.src = `img/slides/slide_${slideNum}.png`;
+            imgEl.onerror = () => {
+                const candidates = SLIDE_FALLBACKS[key] || [];
+                for (const cand of candidates) {
+                    if (imgEl.src.indexOf(cand) === -1) {
+                        imgEl.src = cand;
+                        break;
+                    }
+                }
+            };
+            imgEl.src = `img/${primaryPath}`;
             imgEl.style.opacity = '1';
-        }, 150);
+        }, 120);
     }
 }
 </script>
