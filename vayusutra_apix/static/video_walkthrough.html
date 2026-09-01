@@ -200,7 +200,7 @@
             </div>
             <span style="font-size:11px; color:var(--accent-saffron); font-weight:700;">भाग १ • पृष्ठभूमि</span>
         </div>
-        <audio controls class="audio-player" src="/static/audio/hindi_part1_intro.mp3"></audio>
+        <audio controls class="audio-player" src="audio/hindi_part1_intro.mp3"></audio>
         <div class="script-box">
             <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
             नमस्ते टीम। आज हम स्मार्ट इंडिया हैकाथॉन के प्रॉब्लम स्टेटमेंट <strong>एसआईएच 26056</strong> को आसान भाषा में समझेंगे। यह प्रोजेक्ट मिनिस्ट्री ऑफ स्टैटिस्टिक्स यानी <strong>MoSPI</strong>, <strong>रिजर्व बैंक ऑफ इंडिया (RBI)</strong> और <strong>DGCA</strong> के लिए है। भारत में महंगाई यानी सीपीआई इन्फ्लेशन नापने के लिए ट्रांसपोर्ट और कम्युनिकेशन का <strong>8.59% वेटेज</strong> है। अब तक सरकार हवाई किराए का डेटा एयरपोर्ट के फिजिकल टिकट काउंटरों पर जाकर महीने में सिर्फ एक बार कलेक्ट करती थी। लेकिन आज <strong>90% से ज्यादा टिकट</strong> इंडिगो, एयर इंडिया और मेकमाईट्रिप जैसे ऑनलाइन पोर्टल से बुक होते हैं। एयरलाइंस डायनामिक प्राइसिंग का इस्तेमाल करती हैं, जिससे एक ही रूट का किराया <strong>200% से 400%</strong> तक बदल जाता है। इसलिए हमें एक ऐसा ऑटोमेटेड सिस्टम बनाना है जो रियल टाइम में ऑनलाइन टिकटों के भाव को स्क्रैप करे और सही सीपीआई इंडेक्स निकाले।
@@ -229,7 +229,7 @@
             </div>
             <span style="font-size:11px; color:var(--accent-cyan); font-weight:700;">भाग २ • फीचर्स और बास्केट</span>
         </div>
-        <audio controls class="audio-player" src="/static/audio/hindi_part2_requirements.mp3"></audio>
+        <audio controls class="audio-player" src="audio/hindi_part2_requirements.mp3"></audio>
         <div class="script-box">
             <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
             अब समझते हैं कि इस प्रॉब्लम स्टेटमेंट में क्या-क्या फीचर्स मांगे गए हैं। पहला फीचर है <strong>डीजीसीए के टॉप 20 घरेलू रूट्स</strong> का बास्केट (जैसे दिल्ली-मुंबई, दिल्ली-बेंगलुरु), जिनका टोटल वेटेज strictly <strong>100%</strong> होना चाहिए। दूसरा फीचर है <strong>5 एडवांस परचेज विंडोज</strong>: T+1 (इमरजेंसी), T+7 (अर्जेंट बिजनेस), T+15 (स्टैंडर्ड), T+30 (लीजर) और T+45 (अर्ली बर्ड)। तीसरा फीचर है <strong>एथिकल स्क्रैपिंग</strong>, जिसमें हमें इंडिगो, एयर इंडिया, अकासा, स्पाइसजेट और मेकमाईट्रिप से डेटा लेना है। इसमें <strong>टोकन बकेट रेट लिमिटर (1.5 req/s)</strong>, रोबोट्स डॉट टीएक्सटी और आईपी जिटर लगाना जरूरी है ताकि किसी वेबसाइट पर लोड न पड़े।
@@ -258,7 +258,7 @@
             </div>
             <span style="font-size:11px; color:var(--accent-gold); font-weight:700;">भाग ३ • डेटा स्क्रबिंग</span>
         </div>
-        <audio controls class="audio-player" src="/static/audio/hindi_part3_cleaning.mp3"></audio>
+        <audio controls class="audio-player" src="audio/hindi_part3_cleaning.mp3"></audio>
         <div class="script-box">
             <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
             डेटा स्क्रैप करने के बाद तीसरा सबसे जरूरी हिस्सा है डेटा क्लीनिंग पाइपलाइन। इसमें दो बड़े चैलेंज हैं। पहला है <strong>मल्टी-ओटीए डिडुप्लीकेशन</strong>। जब एक ही फ्लाइट एयरलाइन की वेबसाइट और मेकमाईट्रिप दोनों पर दिखती है, तो हमें डायरेक्ट एयरलाइन का टिकट रखना है ताकि डुप्लीकेट डेटा से वेटेज खराब न हो। दूसरा चैलेंज है आउटलायर्स यानी गलत डेटा को हटाना। इसके लिए हमें <strong>मीडियन एब्सोल्यूट डेविएशन (MAD) मॉडिफाइड Z-स्कोर</strong> एल्गोरिदम लगाना है। अगर किसी टिकट का Z-स्कोर 3 से ज्यादा है (जैसे ₹99,999 या ₹150 का ग्लिच), तो उसे सिस्टम रिजेक्ट कर देगा। साथ ही हमें बेस फेयर (65%), फ्यूल सरचार्ज (35%), जीएसटी (5%) और एयरपोर्ट फीस (₹711) को अलग-अलग डीकंपोज करना है।
@@ -287,7 +287,7 @@
             </div>
             <span style="font-size:11px; color:var(--accent-emerald); font-weight:700;">भाग ४ • गणित और अर्थशास्त्र</span>
         </div>
-        <audio controls class="audio-player" src="/static/audio/hindi_part4_econometrics.mp3"></audio>
+        <audio controls class="audio-player" src="audio/hindi_part4_econometrics.mp3"></audio>
         <div class="script-box">
             <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
             चौथा मुख्य हिस्सा है इकोनॉमेट्रिक इंडेक्स कैलकुलेशन। इसमें हमें आईएलओ और भारत सरकार के आधिकारिक नियमों का पालन करना है। सबसे पहले हम <strong>जेवन्स ज्योमेट्रिक मीन</strong> का उपयोग करके हर रूट का एलिमेंट्री एवरेज निकालते हैं, जिससे कोई अरिथमेटिक बायस न आए। इसके बाद हम <strong>लास्पायर्स इंडेक्स (I_L)</strong> और <strong>सुपरलेटिव फिशर आइडियल इंडेक्स (I_F)</strong> कैलकुलेट करते हैं। जब भी एयरफेयर इंडेक्स में कोई बदलाव आता है, तो हमारा सिस्टम यह कैलकुलेट करता है कि इसका नेशनल सीपीआई पर कितने <strong>बेसिस पॉइंट्स (Bps)</strong> का असर पड़ेगा। इसके जरिए आरबीआई रेपो रेट तय करते समय तुरंत महंगाई का सटीक अनुमान लगा सकती है।
@@ -316,7 +316,7 @@
             </div>
             <span style="font-size:11px; color:var(--accent-purple); font-weight:700;">भाग ५ • टीम और आर्किटेक्चर</span>
         </div>
-        <audio controls class="audio-player" src="/static/audio/hindi_part5_tech_and_team.mp3"></audio>
+        <audio controls class="audio-player" src="audio/hindi_part5_tech_and_team.mp3"></audio>
         <div class="script-box">
             <strong>आवाज़ स्क्रिप्ट (Hindi Narration):</strong><br>
             पांचवां हिस्सा है वैलिडेशन और लाइव प्रोटोटाइप। हमें डीजीसीए के पैसेंजर यील्ड के साथ 35 दिनों का बैकटेस्टिंग करके <strong>पियर्सन कोरिलेशन (r > 0.85)</strong> और <strong>MAPE एरर (< 4%)</strong> साबित करना है (जो हमने r=0.9858 और MAPE=0.838% के साथ हासिल कर लिया है)। साथ ही हमने 15 सिग्नल्स वाला <strong>एआई नाउकास्टिंग मॉडल (Ridge + GBDT)</strong> बनाया है जो 14 दिनों का इन्फ्लेशन फोरकास्ट देता है। पूरी टीम के काम को ऐसे बांटा गया है:
@@ -357,5 +357,5 @@
     </div>
 </div>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a341efedbf0324b2',t:'MTc4ODI0MTE5NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
