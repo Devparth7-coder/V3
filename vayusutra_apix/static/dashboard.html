@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAYUSUTRA APIx | National Airfare Intelligence &amp; Inflation Decision Platform</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <style>
         /* ==========================================================================
            MODERN THEME SYSTEM & DESIGN TOKENS
@@ -821,12 +822,10 @@
     <header>
         <div class="brand-group">
             <div class="insignia-logo">
-                <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-                    <circle cx="18" cy="18" r="14" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="2,2"/>
-                    <circle cx="18" cy="18" r="4.5" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
-                    <path d="M18 4L26 27L18 22L10 27L18 4Z" fill="#f59e0b"/>
-                    <path d="M4 29C10 24 14 31 18 28C22 25 26 31 32 26" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <img src="img/vayusutra_logo_transparent.png" 
+                     onerror="this.onerror=null; this.src='img/vayusutra_logo.png';" 
+                     alt="VayuSutra Official Logo" 
+                     style="width:38px; height:38px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(56,189,248,0.5));">
             </div>
             <div class="brand-text">
                 <h1>
@@ -1486,13 +1485,118 @@
     </div>
 
     <!-- ========================================================================
+         TEAM VAYUSUTRA (6 MEMBERS) SHOWCASE MODAL
+         ======================================================================== -->
+    <div class="modal-overlay" id="team-modal-overlay">
+        <div class="modal-box" style="max-width:960px;">
+            <button class="modal-close-btn" onclick="closeTeamModal()">&times;</button>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+                <div class="insignia-logo" style="width:40px; height:40px;">
+                    <span style="font-size:1.3rem;">👥</span>
+                </div>
+                <div>
+                    <h2 style="font-size:1.25rem; font-weight:800;">Team VayuSutra &bull; Engineering &amp; Research Team</h2>
+                    <p style="font-size:0.78rem; color:var(--text-secondary);">National Airfare Intelligence &amp; Inflation Decision Platform (SIH26056 &bull; MoSPI / RBI / DGCA)</p>
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:14px;">
+                <!-- Member 1: Dev Parth (Leader) -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(245,158,11,0.4); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #f59e0b, #d97706); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">DP</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Dev Parth <span class="gov-pill" style="font-size:0.65rem;">LEADER</span></div>
+                            <div style="font-size:0.72rem; color:var(--accent-saffron); font-weight:600;">Lead Architect &amp; Team Lead</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        System Architecture, Econometric Index Engine (Jevons/Laspeyres/Fisher), AI Nowcast ML Ensemble &amp; Full-Stack Platform.
+                    </p>
+                </div>
+
+                <!-- Member 2: Avanish Kumar -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(56,189,248,0.3); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #0284c7, #0369a1); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">AK</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Avanish Kumar</div>
+                            <div style="font-size:0.72rem; color:var(--accent-cyan); font-weight:600;">Data Engineering Lead</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        Data Cleaning Pipeline, Multi-OTA Cross-Portal Deduplication &amp; MAD Modified Z-Score Outlier Rejection Algorithm.
+                    </p>
+                </div>
+
+                <!-- Member 3: Anushka Mall -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(16,185,129,0.3); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #10b981, #059669); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">AM</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Anushka Mall</div>
+                            <div style="font-size:0.72rem; color:var(--accent-emerald); font-weight:600;">Scraper &amp; Ingestion Lead</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        Ethical Scraper Engine (Token Bucket 1.5 rps), eSankhyiki MoSPI Catalog Baseline Connector &amp; Ingestion Daemon.
+                    </p>
+                </div>
+
+                <!-- Member 4: Aryan Vishwakarma -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(129,140,248,0.3); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #6366f1, #4f46e5); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">AV</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Aryan Vishwakarma</div>
+                            <div style="font-size:0.72rem; color:var(--accent-purple); font-weight:600;">Econometric Modeling Lead</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        Superlative Fisher/Walsh Index Mathematics, Group 6.1.03 CPI Transmission ($\Delta\text{Bps}$) &amp; Macro Elasticity Simulator.
+                    </p>
+                </div>
+
+                <!-- Member 5: Sumit -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(56,189,248,0.3); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #0284c7, #0369a1); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">S</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Sumit</div>
+                            <div style="font-size:0.72rem; color:var(--accent-cyan); font-weight:600;">Backend &amp; Telemetry Engineer</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        FastAPI High-Concurrency REST Architecture, Prometheus OpenMetrics `/metrics`, WebSocket Live Feeds &amp; DevOps.
+                    </p>
+                </div>
+
+                <!-- Member 6: Aryan -->
+                <div style="background:var(--bg-inner); border:1px solid rgba(16,185,129,0.3); padding:14px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.4);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #10b981, #059669); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:0.85rem;">A</div>
+                        <div>
+                            <div style="font-weight:800; font-size:0.9rem; color:#fff;">Aryan</div>
+                            <div style="font-size:0.72rem; color:var(--accent-emerald); font-weight:600;">UI/UX &amp; Visualizations Lead</div>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-secondary); line-height:1.4;">
+                        Bento Command Center UI, HTML5 Canvas Live Graphs, 20x5 Airfare Heatmap Matrix &amp; Ergonomic Design Tokens.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
          FOOTER
          ======================================================================== -->
     <footer>
         <div>
             <strong>VAYUSUTRA APIx</strong> &bull; National Airfare Intelligence &amp; Inflation Decision Platform &bull; MoSPI / RBI / DGCA &bull; Problem Statement SIH26056
         </div>
-        <div style="display:flex; gap:12px;">
+        <div style="display:flex; gap:12px; align-items:center;">
+            <button class="action-btn" style="padding:3px 10px; font-size:0.75rem;" onclick="openTeamModal()">👥 Team VayuSutra (6)</button>
             <a href="/references" style="color:var(--accent-cyan); text-decoration:none;">📚 References &amp; Research</a>
             <a href="/video" style="color:var(--accent-cyan); text-decoration:none;">🎥 Walkthrough Guide</a>
             <a href="/solution" style="color:var(--accent-cyan); text-decoration:none;">💡 Proposed Solution</a>
@@ -1786,6 +1890,13 @@ function openAuthModal() {
 }
 function closeAuthModal() {
     document.getElementById("auth-modal-overlay").classList.remove("active");
+}
+
+function openTeamModal() {
+    document.getElementById("team-modal-overlay").classList.add("active");
+}
+function closeTeamModal() {
+    document.getElementById("team-modal-overlay").classList.remove("active");
 }
 
 function switchAuthTab(tab) {
@@ -2528,6 +2639,7 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeAuthModal();
         closeDrilldownModal();
+        closeTeamModal();
     }
 });
 
@@ -2570,5 +2682,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a34267ba0f20302f',t:'MTc4ODI0NjEwMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
